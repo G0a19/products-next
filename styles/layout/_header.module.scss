@@ -1,0 +1,230 @@
+@import "./../mixin";
+
+.header {
+  background: $color-white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+
+  &_wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    @include until_descktop {
+      height: 70px;
+    }
+  }
+
+  &_logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &_logoIcon {
+    width: 28px;
+    height: 28px;
+    color: #667eea;
+  }
+
+  &_logoText {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a202c;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  &_menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    @include until_descktop {
+      display: none;
+    }
+  }
+
+  &_menuLink {
+    font-size: 16px;
+    font-weight: 500;
+    color: #4a5568;
+    text-decoration: none;
+    padding: 8px 0;
+    transition: color 0.3s ease;
+    @include link;
+  }
+
+  &_actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    @include until_descktop {
+      display: none;
+    }
+  }
+
+  &_cartButton {
+    position: relative;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #f7fafc;
+      transform: scale(1.1);
+    }
+  }
+
+  &_cartIcon {
+    width: 24px;
+    height: 24px;
+    color: #4a5568;
+  }
+
+  &_cartBadge {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: $color-white;
+    font-size: 11px;
+    font-weight: 600;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.hamburgerMenu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 1001;
+  @include until_descktop {
+    display: flex;
+  }
+
+  &_top,
+  &_middle,
+  &_bottom {
+    width: 100%;
+    height: 2px;
+    background: #4a5568;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  &-active {
+    .hamburgerMenu_middle {
+      opacity: 0;
+    }
+
+    .hamburgerMenu_top {
+      transform: rotate(45deg) translateY(13px);
+    }
+
+    .hamburgerMenu_bottom {
+      transform: rotate(-45deg) translateY(-13px);
+    }
+  }
+}
+
+.separator {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #e2e8f0 50%, transparent 100%);
+}
+
+.dropDown {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  background: $color-white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 999;
+  height: calc(100% - 60px);
+  padding: 20px 0;
+  @include desktop {
+    display: none !important;
+  }
+
+  &-active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &_wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 20px;
+  }
+
+  &_menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &_menuLink {
+    font-size: 18px;
+    font-weight: 500;
+    color: #4a5568;
+    text-decoration: none;
+    padding: 12px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: block;
+
+    &:hover {
+      background: #f7fafc;
+      color: #667eea;
+      transform: translateX(8px);
+    }
+
+    &-active {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: $color-white;
+      font-weight: 600;
+
+      &:hover {
+        transform: translateX(8px);
+      }
+    }
+  }
+}
+
+.speretor {
+  width: 100%;
+  height: 60px;
+  @include desktop() {
+    height: 80px;
+  }
+}

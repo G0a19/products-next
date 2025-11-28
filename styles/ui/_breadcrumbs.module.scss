@@ -1,0 +1,98 @@
+@import "./../mixin";
+
+.breadcrumbs {
+  padding: 20px;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+
+  &_list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 8px;
+  }
+
+  &_item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &:first-child {
+      .breadcrumbs_separator {
+        display: none;
+      }
+    }
+  }
+
+  &_link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #667eea;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    padding: 4px 8px;
+    border-radius: 6px;
+
+    &:hover {
+      background: #f7fafc;
+      color: #764ba2;
+    }
+  }
+
+  &_current {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2d3748;
+    padding: 4px 8px;
+    @include line-clamp(1);
+  }
+
+  &_homeIcon {
+    width: 16px;
+    height: 16px;
+    color: currentColor;
+  }
+
+  &_separator {
+    width: 16px;
+    height: 16px;
+    color: #cbd5e0;
+    flex-shrink: 0;
+  }
+}
+
+@include until_descktop {
+  .breadcrumbs {
+    padding: 12px;
+
+    &_list {
+      gap: 4px;
+    }
+
+    &_link,
+    &_current {
+      font-size: 12px;
+      padding: 2px 4px;
+    }
+
+    &_homeIcon,
+    &_separator {
+      width: 12px;
+      height: 12px;
+    }
+
+    &_link {
+      gap: 4px;
+    }
+
+    &_item {
+      gap: 4px;
+    }
+  }
+}

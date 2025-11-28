@@ -1,0 +1,31 @@
+@import "./../mixin";
+
+.productsList {
+  padding: 40px 0;
+  @include desktop {
+    padding: 80px 0;
+  }
+
+  &_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    @include tablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    @include desktop {
+      gap: 30px;
+    }
+
+    .productCard {
+      @include tablet {
+        flex-basis: calc(50% - 10px);
+        height: auto;
+      }
+      @include desktop {
+        flex-basis: calc(25% - 22.5px);
+      }
+    }
+  }
+}

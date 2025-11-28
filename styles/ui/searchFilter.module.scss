@@ -1,0 +1,147 @@
+@import "./../mixin";
+
+.searchFilter {
+  padding: 40px 0;
+  background: $color-white;
+  border-bottom: 1px solid #e2e8f0;
+
+  &_wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  &_container {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &_searchBox {
+    position: relative;
+    flex: 1;
+    min-width: 280px;
+  }
+
+  &_input {
+    width: 100%;
+    padding: 14px 48px 14px 20px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 15px;
+    color: #2d3748;
+    transition: all 0.3s ease;
+    background: $color-white;
+
+    &::placeholder {
+      color: #a0aec0;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+  }
+
+  &_icon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    color: #a0aec0;
+    pointer-events: none;
+  }
+
+  &_categoryBox {
+    min-width: 200px;
+  }
+
+  &_select {
+    width: 100%;
+    padding: 14px 20px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 15px;
+    color: #2d3748;
+    background: $color-white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23a0aec0' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 44px;
+
+    &:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    &:hover {
+      border-color: #cbd5e0;
+    }
+  }
+
+  &_clearButton {
+    padding: 14px 24px;
+    background: #f7fafc;
+    color: #718096;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+
+    &:hover {
+      background: #edf2f7;
+      color: #4a5568;
+      border-color: #cbd5e0;
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+
+  &_results {
+    width: 100%;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+    font-size: 14px;
+    color: #718096;
+    font-weight: 500;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .searchFilter {
+    padding: 30px 0;
+
+    &_container {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    &_searchBox,
+    &_categoryBox,
+    &_clearButton {
+      width: 100%;
+      min-width: unset;
+    }
+
+    &_results {
+      margin-top: 16px;
+      padding-top: 16px;
+      text-align: center;
+    }
+  }
+}

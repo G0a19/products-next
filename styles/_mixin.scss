@@ -1,0 +1,147 @@
+@import "./variables";
+
+@mixin desktop() {
+  @media (min-width: $largeMin) {
+    @content;
+  }
+}
+
+@mixin desktop-big() {
+  @media (min-width: $xlargeMin) {
+    @content;
+  }
+}
+
+@mixin desktop-big-max() {
+  @media (min-width: 1920px) {
+    @content;
+  }
+}
+
+@mixin tablet() {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin mobile() {
+  @media (max-width: $largeMax) {
+    @content;
+  }
+}
+
+@mixin until_descktop() {
+  @media (max-width: $largeMax) {
+    @content;
+  }
+}
+
+@mixin row($num: 2, $gap: 0px, $justify: center) {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: $justify;
+  margin-right: -$gap * 0.5;
+  margin-left: -$gap * 0.5;
+
+  & > * {
+    margin-bottom: $gap;
+    flex-basis: calc((100% / #{$num}) - #{$gap});
+    margin: $gap * 0.5;
+    flex-grow: 0;
+  }
+}
+
+@mixin fit {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@mixin p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 110%;
+  @include desktop {
+    font-size: 18px;
+  }
+}
+
+@mixin h1 {
+  font-weight: 900;
+  font-size: 45px;
+  line-height: 82%;
+  @include desktop {
+    font-size: 70px;
+  }
+}
+
+@mixin h3 {
+  font-weight: 700;
+  line-height: 100%;
+  @include desktop {
+    font-size: 40px;
+  }
+}
+
+@mixin line-clamp($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-size: 200% 100%;
+  color: #ffffff;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  border-radius: 10px;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+    background-position: 100% 0;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@mixin link {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    color: #667eea;
+
+    &::after {
+      width: 100%;
+    }
+  }
+
+  &-active {
+    color: #667eea;
+    font-weight: 600;
+
+    &::after {
+      width: 100%;
+    }
+  }
+}

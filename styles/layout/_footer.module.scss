@@ -1,0 +1,29 @@
+@import "./../mixin";
+@import "./../variables";
+
+.footer {
+  padding: 20px 0;
+  width: 100%;
+  background-color: grey;
+  margin-top: auto;
+  color: $color-white;
+  background: $color-primary;
+  @include desktop {
+    padding: 25px 0;
+  }
+
+  &_wrapper {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  &_title {
+    @include h3;
+    text-align: center;
+    a {
+      color: $color-white;
+    }
+  }
+}

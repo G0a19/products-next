@@ -1,0 +1,271 @@
+@import "./../mixin";
+
+.notFound {
+  min-height: calc(100vh - 200px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, $color-white 100%);
+
+  &_container {
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  &_content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &_title {
+    font-size: 120px;
+    font-weight: 800;
+    color: #667eea;
+    line-height: 1;
+    margin: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  &_subtitle {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1a202c;
+    margin: 0;
+  }
+
+  &_description {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #718096;
+    margin: 0;
+  }
+
+  &_actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  &_button-primary {
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: $color-white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    text-decoration: none;
+    display: inline-block;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &_button-secondary {
+    padding: 16px 32px;
+    background: $color-white;
+    color: #667eea;
+    border: 2px solid #667eea;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #667eea;
+      color: $color-white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &_suggestions {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 2px solid #e2e8f0;
+  }
+
+  &_suggestionsTitle {
+    font-size: 14px;
+    font-weight: 600;
+    color: #4a5568;
+    margin: 0 0 12px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  &_suggestionsList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 24px;
+  }
+
+  &_link {
+    color: #667eea;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #667eea;
+      transition: width 0.3s ease;
+    }
+
+    &:hover {
+      color: #764ba2;
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  &_illustration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &_svg {
+    width: 300px;
+    height: 300px;
+    color: #cbd5e0;
+    animation: float 3s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 1024px) {
+  .notFound {
+    &_container {
+      gap: 40px;
+    }
+
+    &_title {
+      font-size: 100px;
+    }
+
+    &_subtitle {
+      font-size: 32px;
+    }
+
+    &_svg {
+      width: 250px;
+      height: 250px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .notFound {
+    padding: 60px 20px;
+
+    &_container {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      text-align: center;
+    }
+
+    &_title {
+      font-size: 80px;
+    }
+
+    &_subtitle {
+      font-size: 28px;
+    }
+
+    &_description {
+      font-size: 16px;
+    }
+
+    &_actions {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    &_suggestionsList {
+      justify-content: center;
+    }
+
+    &_svg {
+      width: 200px;
+      height: 200px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .notFound {
+    padding: 40px 20px;
+
+    &_title {
+      font-size: 64px;
+    }
+
+    &_subtitle {
+      font-size: 24px;
+    }
+
+    &_description {
+      font-size: 14px;
+    }
+
+    &_actions {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    &_button-primary,
+    &_button-secondary {
+      width: 100%;
+    }
+
+    &_suggestionsList {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+}
