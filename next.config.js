@@ -8,7 +8,16 @@ const shouldAnalyzeBundles = process.env.ANALYZE === true;
 const nextConfig = (phase) => {
   return {
     images: {
-      domains: ["127.0.0.1", "fakestoreapi.com"],
+      remotePatterns: [
+        {
+          protocol: "http",
+          hostname: "127.0.0.1",
+        },
+        {
+          protocol: "https",
+          hostname: "fakestoreapi.com",
+        },
+      ],
     },
     env: {
       siteName: "Products Next",
