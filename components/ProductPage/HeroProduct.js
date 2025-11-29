@@ -10,7 +10,15 @@ const HeroProduct = ({ product }) => {
         <div className="heroProduct_container">
           <div className="heroProduct_imageSection">
             <div className="heroProduct_imageWrapper">
-              <ImageComponentResponsive image={product.image} alt={product.title} width={500} height={500} className="heroProduct_image" />
+              <ImageComponentResponsive
+                image={product.image}
+                alt={product.title}
+                width={300}
+                height={300}
+                className="heroProduct_image"
+                fetchPriority="high"
+                loading="eager"
+              />
             </div>
           </div>
 

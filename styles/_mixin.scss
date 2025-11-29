@@ -36,22 +36,6 @@
   }
 }
 
-@mixin row($num: 2, $gap: 0px, $justify: center) {
-  display: flex;
-  align-items: stretch;
-  flex-wrap: wrap;
-  justify-content: $justify;
-  margin-right: -$gap * 0.5;
-  margin-left: -$gap * 0.5;
-
-  & > * {
-    margin-bottom: $gap;
-    flex-basis: calc((100% / #{$num}) - #{$gap});
-    margin: $gap * 0.5;
-    flex-grow: 0;
-  }
-}
-
 @mixin fit {
   background-size: cover;
   background-repeat: no-repeat;

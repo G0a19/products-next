@@ -23,7 +23,6 @@ const nextConfig = (phase) => {
       siteName: "Products Next",
       revalidate: "1800",
       frontUrl: "http://localhost:3000",
-      siteName: "Products Next",
     },
     sassOptions: {
       includePaths: [path.join(__dirname, "styles"), path.join(__dirname, "components")],

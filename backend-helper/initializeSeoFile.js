@@ -10,14 +10,6 @@ const initializeSeoFile = async () => {
     if (fs.existsSync(seoFilePath)) {
       console.log("✅ seo.json already exists");
 
-      // Ask if user wants to regenerate
-      const shouldRegenerate = process.argv.includes("--force");
-
-      if (!shouldRegenerate) {
-        console.log("ℹ️  Use --force flag to regenerate: node scripts/init-seo.js --force");
-        return;
-      }
-
       fs.unlinkSync(seoFilePath);
       console.log("🗑️  Existing seo.json deleted");
     }

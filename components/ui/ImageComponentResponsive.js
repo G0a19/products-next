@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Fragment } from "react";
 
-const ImageComponentResponsive = ({ image, alt, width, height, className, style, elementRef, loading }, props) => {
+const ImageComponentResponsive = ({ image, alt, width, height, className, style, elementRef, loading, fetchPriority }) => {
   if (!image) return null;
 
   return (
@@ -17,6 +17,7 @@ const ImageComponentResponsive = ({ image, alt, width, height, className, style,
           className={className ?? ""}
           ref={elementRef ?? null}
           priority={loading ? true : false}
+          fetchPriority={fetchPriority ? fetchPriority : "auto"}
         />
       )}
     </Fragment>
